@@ -55,7 +55,7 @@ export default function Location() {
 
             <aside className="relative bg-cocoa-deep p-8 text-ivory md:col-span-5 md:-ml-10 md:mt-20 md:self-start md:p-10 lg:col-span-4 lg:-ml-14 lg:mt-24">
               <p className="eyebrow !text-champagne !opacity-80">
-                Souan ·  Souan · Jubilee Hills
+                Souan · Jubilee Hills
               </p>
               <h3 className="mt-4 font-display text-[1.45rem] font-light leading-[1.2] lg:text-[1.6rem]">
                  Metro Pillar C1666, 
