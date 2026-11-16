@@ -11,4 +11,4 @@ export const navItems: NavItem[] = [
 export const PHONE_DISPLAY = "073374 82255";
 export const PHONE_HREF = "tel:07337482255";
 export const WHATSAPP_HREF =
-  "https://wa.me/917337482255?text=Hi%2C%20I%27d%20like%20to%20book%20a%20session%20at%20Souan%20Luxury%20Spa%20Sun%20City.";
+  "https://wa.me/917337482255?text=Hi%2C%20I%27d%20like%20to%20book%20a%20session%20at%20Souan%20Luxury%20Spa%20Jubilee%20Hills.";
