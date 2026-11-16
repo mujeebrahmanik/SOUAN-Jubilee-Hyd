@@ -1,0 +1,184 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ivory: #f8f5ef;
+  --cream: #f3ece1;
+  --champagne: #c5a46d;
+  --cocoa: #3c2318;
+  --cocoa-deep: #2a170f;
+  --burgundy: #6b2a20;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  background-color: var(--cream);
+  color: var(--cocoa-deep);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-roboto), ui-sans-serif, system-ui, sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.005em;
+}
+
+h1,
+h2,
+h3,
+h4,
+.font-display {
+  font-family: var(--font-poppins), ui-serif, serif;
+  letter-spacing: -0.018em;
+}
+
+.serif {
+  font-family: var(--font-poppins), ui-serif, serif;
+  font-style: italic;
+  font-weight: 300;
+  letter-spacing: -0.01em;
+}
+
+::selection {
+  background: var(--champagne);
+  color: var(--cocoa-deep);
+}
+
+/* ---------- Editorial typography utilities ---------- */
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--cocoa-deep);
+  opacity: 0.92;
+}
+
+.rule {
+  display: inline-block;
+  height: 1px;
+  width: 42px;
+  background: currentColor;
+  vertical-align: middle;
+  opacity: 0.4;
+}
+
+.index-num {
+  font-family: var(--font-poppins), serif;
+  font-weight: 300;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.05em;
+}
+
+/* ---------- Buttons: rectangular, editorial ---------- */
+
+.btn-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.95rem 1.6rem;
+  background: var(--burgundy);
+  color: var(--ivory);
+  font-family: var(--font-poppins), serif;
+  font-weight: 400;
+  font-size: 0.74rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transition: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btn-cta:hover {
+  background: var(--cocoa-deep);
+}
+
+.btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.95rem 1.6rem;
+  background: transparent;
+  color: var(--cocoa-deep);
+  font-family: var(--font-poppins), serif;
+  font-weight: 400;
+  font-size: 0.74rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border: 1px solid rgba(60, 35, 24, 0.35);
+  transition: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btn-whatsapp:hover {
+  background: var(--cocoa-deep);
+  color: var(--ivory);
+  border-color: var(--cocoa-deep);
+}
+
+.btn-whatsapp .wa-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: #25d366;
+  box-shadow: 0 0 0 3px rgba(37, 211, 102, 0.18);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0;
+  font-family: var(--font-poppins), serif;
+  font-weight: 400;
+  font-size: 0.74rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cocoa-deep);
+  position: relative;
+  transition: color 0.4s ease;
+}
+
+.btn-ghost::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform-origin: left;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btn-ghost:hover::after {
+  transform: scaleX(0.4);
+}
+
+.btn-ghost:hover {
+  color: var(--burgundy);
+}
+
+/* Light variant of utility bar / inverted contexts */
+.btn-cta-light {
+  background: var(--ivory);
+  color: var(--cocoa-deep);
+}
+.btn-cta-light:hover {
+  background: var(--champagne);
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
