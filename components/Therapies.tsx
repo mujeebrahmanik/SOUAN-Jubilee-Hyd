@@ -5,6 +5,12 @@ import { Phone } from "lucide-react";
 import Reveal from "./Reveal";
 import { popularTherapies } from "@/lib/treatments";
 import { PHONE_HREF } from "@/lib/navigation";
+import { reportCallConversion } from "@/lib/analytics";
+
+function handleCallClick(e: React.MouseEvent<HTMLAnchorElement>) {
+  e.preventDefault();
+  reportCallConversion(PHONE_HREF);
+}
 
 export default function Therapies() {
   return (
@@ -37,7 +43,7 @@ export default function Therapies() {
           {popularTherapies.map((t, i) => (
             <Reveal key={t.slug} delay={(i % 3) * 0.06} className="h-full">
               <article className="group flex h-full flex-col border border-cocoa-deep/10 bg-ivory/60 transition-colors duration-500 hover:border-cocoa-deep/25">
-                <a href={PHONE_HREF} className="block">
+                <a href={PHONE_HREF} onClick={handleCallClick} className="block">
                   <div className="relative aspect-[4/3] w-full overflow-hidden">
                     <Image
                       src={t.image}
@@ -64,6 +70,7 @@ export default function Therapies() {
                     <div className="mb-5 h-px bg-cocoa-deep/10" />
                     <a
                       href={PHONE_HREF}
+                      onClick={handleCallClick}
                       aria-label={`Call for availability — ${t.title}`}
                       className="btn-cta w-full"
                     >

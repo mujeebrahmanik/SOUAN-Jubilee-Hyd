@@ -9,6 +9,12 @@ import {
   PHONE_HREF,
   WHATSAPP_HREF,
 } from "@/lib/navigation";
+import { reportCallConversion } from "@/lib/analytics";
+
+function handleCallClick(e: React.MouseEvent<HTMLAnchorElement>) {
+  e.preventDefault();
+  reportCallConversion(PHONE_HREF);
+}
 
 function Wordmark({ tone }: { tone: "light" | "dark" }) {
   const text = tone === "light" ? "text-ivory" : "text-cocoa-deep";
@@ -66,6 +72,7 @@ export default function Header() {
             <span className="h-3 w-px bg-ivory/15" />
             <a
               href={PHONE_HREF}
+              onClick={handleCallClick}
               className="transition-colors hover:text-ivory"
             >
               {PHONE_DISPLAY}
@@ -105,7 +112,7 @@ export default function Header() {
           </nav>
 
           <div className="hidden lg:block">
-            <a href={PHONE_HREF} className="btn-cta">
+            <a href={PHONE_HREF} onClick={handleCallClick} className="btn-cta">
               Reserve
             </a>
           </div>
@@ -164,7 +171,14 @@ export default function Header() {
                 ))}
               </nav>
               <div className="mt-10 space-y-3">
-                <a href={PHONE_HREF} className="btn-cta w-full">
+                <a
+                  href={PHONE_HREF}
+                  onClick={(e) => {
+                    setOpen(false);
+                    handleCallClick(e);
+                  }}
+                  className="btn-cta w-full"
+                >
                   Call · {PHONE_DISPLAY}
                 </a>
                 <a

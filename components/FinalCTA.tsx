@@ -3,6 +3,12 @@
 import Image from "next/image";
 import Reveal from "./Reveal";
 import { PHONE_DISPLAY, PHONE_HREF, WHATSAPP_HREF } from "@/lib/navigation";
+import { reportCallConversion } from "@/lib/analytics";
+
+function handleCallClick(e: React.MouseEvent<HTMLAnchorElement>) {
+  e.preventDefault();
+  reportCallConversion(PHONE_HREF);
+}
 
 const CTA_IMAGE = "/images/oil.avif"
 
@@ -45,6 +51,7 @@ export default function FinalCTA() {
                   Same-day appointments usually available. Call{" "}
                   <a
                     href={PHONE_HREF}
+                    onClick={handleCallClick}
                     className="font-semibold text-burgundy underline-offset-4 hover:underline"
                   >
                     {PHONE_DISPLAY}
@@ -55,7 +62,7 @@ export default function FinalCTA() {
 
               <Reveal delay={0.22}>
                 <div className="mt-10 flex flex-wrap items-center gap-4">
-                  <a href={PHONE_HREF} className="btn-cta">
+                  <a href={PHONE_HREF} onClick={handleCallClick} className="btn-cta">
                     Call to Reserve
                   </a>
                   <a

@@ -3,6 +3,12 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, MessageCircle, Phone } from "lucide-react";
 import { PHONE_DISPLAY, PHONE_HREF, WHATSAPP_HREF } from "@/lib/navigation";
+import { reportCallConversion } from "@/lib/analytics";
+
+function handleCallClick(e: React.MouseEvent<HTMLAnchorElement>) {
+  e.preventDefault();
+  reportCallConversion(PHONE_HREF);
+}
 
 
 
@@ -100,6 +106,7 @@ export default function Hero() {
             {/* Primary CTA — champagne gold, maximum pop on dark hero */}
             <a
               href={PHONE_HREF}
+              onClick={handleCallClick}
               className="group relative inline-flex items-center justify-center gap-3 overflow-hidden bg-champagne px-7 py-[18px] font-display text-[12.5px] font-medium uppercase tracking-[0.22em] text-cocoa-deep shadow-[0_22px_55px_-18px_rgba(197,164,109,0.75)] transition-all duration-500 hover:-translate-y-[2px] hover:shadow-[0_28px_65px_-18px_rgba(197,164,109,0.95)]"
             >
               <span className="relative flex h-8 w-8 items-center justify-center rounded-full bg-cocoa-deep">

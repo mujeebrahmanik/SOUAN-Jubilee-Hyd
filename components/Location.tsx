@@ -3,6 +3,12 @@
 import { Navigation, Phone } from "lucide-react";
 import Reveal from "./Reveal";
 import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/navigation";
+import { reportCallConversion } from "@/lib/analytics";
+
+function handleCallClick(e: React.MouseEvent<HTMLAnchorElement>) {
+  e.preventDefault();
+  reportCallConversion(PHONE_HREF);
+}
 
 const ADDRESS =
   "Metro Pillar C1666, Road No. 36, above Manyavar, CBI Colony, Jubilee Hills, Hyderabad, Telangana 500033";
@@ -79,6 +85,7 @@ export default function Location() {
                   <dd>
                     <a
                       href={PHONE_HREF}
+                      onClick={handleCallClick}
                       className="font-display font-medium text-ivory hover:text-champagne"
                     >
                       {PHONE_DISPLAY}
@@ -98,6 +105,7 @@ export default function Location() {
                 </a>
                 <a
                   href={PHONE_HREF}
+                  onClick={handleCallClick}
                   className="btn-whatsapp !border-ivory/30 w-full !text-ivory hover:!bg-ivory hover:!text-cocoa-deep hover:!border-ivory"
                 >
                   <Phone size={14} /> Call to Reserve

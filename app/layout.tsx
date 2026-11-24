@@ -36,7 +36,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${poppins.variable} ${roboto.variable}`}>
-      <head>
+      <body className="bg-cream text-cocoa-deep antialiased">
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=AW-11289675218"
           strategy="afterInteractive"
@@ -49,8 +49,8 @@ export default function RootLayout({
             gtag('config', 'AW-11289675218');
           `}
         </Script>
-      </head>
-      <body className="bg-cream text-cocoa-deep antialiased">{children}</body>
+        {children}
+      </body>
     </html>
   );
 }
